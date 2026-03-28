@@ -3,9 +3,11 @@ FROM node:18-alpine AS frontend-builder
 
 WORKDIR /app
 
+# Install bun
+RUN npm install -g bun
+
 # Copy package files
 COPY package.json ./
-COPY package-lock.json* ./
 COPY bun.lock* ./
 COPY bun.lockb* ./
 
@@ -13,7 +15,7 @@ COPY bun.lockb* ./
 COPY . .
 
 # Install dependencies and build
-RUN npm install && npm run build
+RUN bun install && bun run build
 
 # Runtime stage
 FROM python:3.10-slim
