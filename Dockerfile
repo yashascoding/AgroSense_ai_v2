@@ -3,9 +3,16 @@ FROM node:18-alpine AS frontend-builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json bun.lockb* ./
+# Copy package files
+COPY package.json ./
+COPY package-lock.json* ./
+COPY bun.lock* ./
+COPY bun.lockb* ./
+
+# Copy source code
 COPY . .
 
+# Install dependencies and build
 RUN npm install && npm run build
 
 # Runtime stage
@@ -26,7 +33,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend code
 COPY backend/ ./backend/
 
-# Copy built frontend from previous stage (optional if your backend serves it)
+# Copy built frontend from previous stage
 COPY --from=frontend-builder /app/dist ./dist
 
 # Expose port (Railway will use PORT env var at runtime)
