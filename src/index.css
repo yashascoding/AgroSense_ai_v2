@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 80 20% 97%;
+    --foreground: 150 30% 10%;
+
+    --card: 80 15% 95%;
+    --card-foreground: 150 30% 10%;
+
+    --popover: 80 15% 95%;
+    --popover-foreground: 150 30% 10%;
+
+    --primary: 142 55% 35%;
+    --primary-foreground: 80 30% 98%;
+
+    --secondary: 80 20% 90%;
+    --secondary-foreground: 150 25% 15%;
+
+    --muted: 80 15% 92%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 48 80% 55%;
+    --accent-foreground: 150 30% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 80 15% 88%;
+    --input: 80 15% 88%;
+    --ring: 142 55% 35%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 150 25% 12%;
+    --sidebar-foreground: 80 20% 90%;
+    --sidebar-primary: 142 55% 45%;
+    --sidebar-primary-foreground: 80 30% 98%;
+    --sidebar-accent: 150 20% 18%;
+    --sidebar-accent-foreground: 80 20% 90%;
+    --sidebar-border: 150 15% 20%;
+    --sidebar-ring: 142 55% 45%;
+
+    --glass-bg: 80 20% 97% / 0.6;
+    --glass-border: 80 15% 88% / 0.3;
+    --gradient-hero: linear-gradient(135deg, hsl(142, 55%, 35%), hsl(168, 50%, 30%));
+    --gradient-accent: linear-gradient(135deg, hsl(48, 80%, 55%), hsl(38, 75%, 50%));
+    --gradient-surface: linear-gradient(180deg, hsl(80, 20%, 97%), hsl(80, 15%, 93%));
+    --shadow-glass: 0 8px 32px hsl(150 30% 10% / 0.08);
+    --shadow-elevated: 0 20px 60px hsl(150 30% 10% / 0.12);
+
+    --healthy: 142 70% 40%;
+    --diseased: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 145 18% 10%;
+    --foreground: 50 30% 92%;
+
+    --card: 145 15% 14%;
+    --card-foreground: 50 30% 92%;
+
+    --popover: 145 15% 14%;
+    --popover-foreground: 50 30% 92%;
+
+    --primary: 48 75% 55%;
+    --primary-foreground: 150 30% 8%;
+
+    --secondary: 145 12% 18%;
+    --secondary-foreground: 50 25% 88%;
+
+    --muted: 145 10% 18%;
+    --muted-foreground: 45 15% 60%;
+
+    --accent: 42 80% 55%;
+    --accent-foreground: 150 30% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 145 10% 22%;
+    --input: 145 10% 22%;
+    --ring: 48 75% 55%;
+
+    --sidebar-background: 145 20% 8%;
+    --sidebar-foreground: 50 25% 85%;
+    --sidebar-primary: 48 75% 55%;
+    --sidebar-primary-foreground: 150 30% 8%;
+    --sidebar-accent: 145 15% 14%;
+    --sidebar-accent-foreground: 50 25% 85%;
+    --sidebar-border: 145 12% 16%;
+    --sidebar-ring: 48 75% 55%;
+
+    --glass-bg: 145 15% 14% / 0.6;
+    --glass-border: 45 20% 25% / 0.3;
+    --gradient-hero: linear-gradient(135deg, hsl(48, 75%, 45%), hsl(38, 70%, 38%));
+    --gradient-accent: linear-gradient(135deg, hsl(42, 80%, 55%), hsl(32, 75%, 45%));
+    --gradient-surface: linear-gradient(180deg, hsl(145, 18%, 10%), hsl(145, 15%, 14%));
+    --shadow-glass: 0 8px 32px hsl(45 30% 10% / 0.25);
+    --shadow-elevated: 0 20px 60px hsl(45 30% 5% / 0.35);
+
+    --healthy: 142 70% 50%;
+    --diseased: 0 62% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card-elevated {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+
+  .status-healthy {
+    color: hsl(var(--healthy));
+  }
+
+  .status-diseased {
+    color: hsl(var(--diseased));
+  }
+
+  .bg-healthy {
+    background-color: hsl(var(--healthy));
+  }
+
+  .bg-diseased {
+    background-color: hsl(var(--diseased));
+  }
+
+  .border-healthy {
+    border-color: hsl(var(--healthy));
+  }
+
+  .border-diseased {
+    border-color: hsl(var(--diseased));
+  }
+}

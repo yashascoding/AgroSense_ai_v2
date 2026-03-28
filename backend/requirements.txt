@@ -1,0 +1,8 @@
+Flask
+flask-cors
+requests
+PyMySQL
+python-dotenv
+cloudinary
+google-generativeai
+Pillow
