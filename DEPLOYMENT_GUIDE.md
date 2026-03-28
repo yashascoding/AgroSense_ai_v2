@@ -25,9 +25,13 @@
 **BEFORE DEPLOYING:**
 
 1. Get API Keys:
-   - [ ] **Gemini API Key:** https://aistudio.google.com/apikey
+   - [ ] **Gemini API Key:** https://aistudio.google.com/apikey  AIzaSyCET_JtjCgjqzU3pPfteQrX8oxSiAs75Pg
    - [ ] **Hugging Face Token:** https://huggingface.co/settings/tokens
+
+
    - [ ] **Cloudinary (Optional):** https://cloudinary.com/console
+
+   
 
 2. Make sure `Procfile` exists in repo root (already created ✅)
 
